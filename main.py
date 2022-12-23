@@ -6,15 +6,17 @@ import time
 
 
 def login():
+     _username = ' '
+    _password = ' '
     username_xpath = "//*[@id='app']/div/div/div[2]/div/div[1]/div/div/div[3]/form/div[1]/div/div/input"
     password_xpath = "//*[@id='app']/div/div/div[2]/div/div[1]/div/div/div[3]/form/div[2]/div/div/input"
     button_xpath = "//*[@id='app']/div/div/div[2]/div/div[1]/div/div/div[3]/form/button"
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, button_xpath)))
     user = driver.find_element(By.XPATH, username_xpath)
-    user.send_keys("username")
+    user.send_keys(_username)
     time.sleep(1)
     password = driver.find_element(By.XPATH, password_xpath)
-    password.send_keys("password")
+    password.send_keys(_password)
     time.sleep(1)
     button = driver.find_element(By.XPATH, button_xpath)
     button.click()
