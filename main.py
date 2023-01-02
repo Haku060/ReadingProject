@@ -14,10 +14,8 @@ def login():
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, button_xpath)))
     user = driver.find_element(By.XPATH, username_xpath)
     user.send_keys(_username)
-    time.sleep(1)
     password = driver.find_element(By.XPATH, password_xpath)
     password.send_keys(_password)
-    time.sleep(1)
     button = driver.find_element(By.XPATH, button_xpath)
     button.click()
 
@@ -40,6 +38,9 @@ def select():
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, elem1_xpath)))
     elem1 = driver.find_element(By.XPATH, elem1_xpath).text
     elem2 = driver.find_element(By.XPATH, elem2_xpath).text
+    print("当前的学习时间")
+    print("第一章", elem1)
+    print('第二章', elem2)
 
     # 数据处理
     temp1 = (int(elem1[0]) * 10 + int(elem1[1])) * 3600 + (int(elem1[3]) * 10 + int(elem1[4])) * 60 + (
@@ -47,6 +48,7 @@ def select():
     temp2 = (int(elem2[0]) * 10 + int(elem2[1])) * 3600 + (int(elem2[3]) * 10 + int(elem2[4])) * 60 + (
             int(elem2[6]) * 10 + int(elem2[7]))
     time.sleep(2)
+    print('开始学习')
 
     # 根据时长来选择课程
     if temp1 < 57600:
@@ -91,6 +93,8 @@ def select():
             function(2, 15)
         elif 216000 <= temp2 < 230400:
             function(2, 16)
+    else:
+        print('程序已完成学习，请检查学习数据')
 
 
 def function(a, b):
@@ -212,12 +216,13 @@ def function(a, b):
 
 
 # 打开网页
-i = 1  # 标志
+i = 1
 count = 0
 url = "https://umooc.ulearning.cn/pc.html#/login"
 
 # 执行操作
 # noinspection PyBroadException
+
 try:
     driver = webdriver.Chrome()
     driver.get(url)
@@ -225,13 +230,8 @@ try:
     login()
     time.sleep(5)
     select()
-
 except:
-    print("发生异常！尝试重启。")
-
-else:
-    pass
-
+    print("发生异常！程序即将退出。")
 finally:
     print("程序退出")
 
