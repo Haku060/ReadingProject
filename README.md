@@ -10,6 +10,6 @@
 
 需要Chrome，理论上新一点的版本都行
 
-运行之前先用文本编辑器编辑main.py，将_username和_password两个变量改成自己的账号密码。
+运行之前先用文本编辑器编辑main.py，将_username和_password两个变量改成自己的账号密码
 
-然后使用Python运行即可。
+然后使用Python运行即可
