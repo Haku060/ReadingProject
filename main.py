@@ -51,48 +51,21 @@ def select():
     print('开始学习')
 
     # 根据时长来选择课程
+    ranges = [[0, 14400, 1], [14400, 28800, 2], [28800, 43200, 3], [43200, 57600, 4],
+              [57600, 72000, 5], [72000, 86400, 6], [86400, 100800, 7], [100800, 115200, 8],
+              [115200, 129600, 9], [129600, 144000, 10], [144000, 158400, 11], [158400, 172800, 12],
+              [172800, 187200, 13], [187200, 201600, 14], [201600, 216000, 15], [216000, 230400, 16]]
+
     if temp1 < 57600:
-        if 0 <= temp1 < 14400:
-            function(1, 1)
-        elif 14400 <= temp1 < 28800:
-            function(1, 2)
-        elif 28800 <= temp1 < 43200:
-            function(1, 3)
-        elif 43200 <= temp1 < 57600:
-            function(1, 4)
+        for r in ranges[:4]:
+            if r[0] <= temp1 < r[1]:
+                function(1, r[2])
+            break
     elif temp2 < 230400:
-        if 0 <= temp2 < 14400:
-            function(2, 1)
-        elif 14400 <= temp2 < 28800:
-            function(2, 2)
-        elif 28800 <= temp2 < 43200:
-            function(2, 3)
-        elif 43200 <= temp2 < 57600:
-            function(2, 4)
-        elif 57600 <= temp2 < 72000:
-            function(2, 5)
-        elif 72000 <= temp2 < 86400:
-            function(2, 6)
-        elif 86400 <= temp2 < 100800:
-            function(2, 7)
-        elif 100800 <= temp2 < 115200:
-            function(2, 8)
-        elif 115200 <= temp2 < 129600:
-            function(2, 9)
-        elif 129600 <= temp2 < 144000:
-            function(2, 10)
-        elif 144000 <= temp2 < 158400:
-            function(2, 11)
-        elif 158400 <= temp2 < 172800:
-            function(2, 12)
-        elif 172800 <= temp2 < 187200:
-            function(2, 13)
-        elif 187200 <= temp2 < 201600:
-            function(2, 14)
-        elif 201600 <= temp2 < 216000:
-            function(2, 15)
-        elif 216000 <= temp2 < 230400:
-            function(2, 16)
+        for r in ranges:
+            if r[0] <= temp1 < r[1]:
+                function(2, r[2])
+            break
     else:
         print('程序已完成学习，请检查学习数据')
 
