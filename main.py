@@ -57,7 +57,7 @@ def select():
               [172800, 187200, 13], [187200, 201600, 14], [201600, 216000, 15], [216000, 230400, 16]]
 
     if temp1 < 57600:
-        for r in ranges:
+        for r in ranges[:4]:
             if r[0] <= temp1 < r[1]:
                 function(1, r[2])
                 break
@@ -76,118 +76,48 @@ def function(a, b):
         # 开始学习
         url_learn = 'https://ua.ulearning.cn/learnCourse/learnCourse.html?courseId=33998&chapterId=110168528&classId=592245'
         driver.get(url_learn)
-        time.sleep(15)
+        time.sleep(3)
         # 跳过指引
         if i == 1:
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[8]/div[4]/div')))
             driver.find_element(By.XPATH, '/html/body/div[8]/div[4]/div').click()
             i = 0
-        if b == 1:
-            driver.find_element(By.XPATH, '//*[@id="page4809639"]/div').click()
-            time.sleep(600)
-            select()
-        elif b == 2:
-            driver.find_element(By.XPATH, '//*[@id="page4809640"]/div').click()
-            time.sleep(600)
-            select()
-        elif b == 3:
-            driver.find_element(By.XPATH, '//*[@id="page4809641"]/div').click()
-            time.sleep(600)
-            select()
-        elif b == 4:
-            driver.find_element(By.XPATH, '//*[@id="page4809645"]/div').click()
-            time.sleep(600)
-            select()
-
+        ranges1 = [[1,'//*[@id="page4809639"]/div'], [2,'//*[@id="page4809640"]/div'],
+                   [3,'//*[@id="page4809641"]/div'], [4,'//*[@id="page4809645"]/div']]
+        for r in ranges1:
+            if b == r[0]:
+                driver.find_element(By.XPATH, r[1]).click()
+                time.sleep(600)
+                select()
+                break
     elif a == 2:
         url_learn = 'https://ua.ulearning.cn/learnCourse/learnCourse.html?courseId=33998&chapterId=110168538&classId=592245'
         js = 'var q = document.getElementsByClassName("page-item")[14].scrollIntoView();'
         driver.get(url_learn)
-        time.sleep(5)
+        time.sleep(3)
         # 跳过指引
         if i == 1:
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[8]/div[4]/div')))
             driver.find_element(By.XPATH, '/html/body/div[8]/div[4]/div').click()
             i = 0
         time.sleep(1)
-        if b == 1:
-            driver.find_element(By.XPATH, '//*[@id="page4809646"]/div').click()
-            time.sleep(600)
-            select()
-        elif b == 2:
-            driver.find_element(By.XPATH, '//*[@id="page4823828"]/div').click()
-            time.sleep(600)
-            select()
-        elif b == 3:
-            driver.find_element(By.XPATH, '//*[@id="page4823829"]/div').click()
-            time.sleep(600)
-            select()
-        elif b == 4:
-            driver.find_element(By.XPATH, '//*[@id="page4823830"]/div').click()
-            time.sleep(600)
-            select()
-        elif b == 5:
-            driver.find_element(By.XPATH, '//*[@id="page4823831"]/div').click()
-            time.sleep(600)
-            select()
-        elif b == 6:
-            driver.find_element(By.XPATH, '//*[@id="page4823832"]/div').click()
-            time.sleep(600)
-            select()
-        elif b == 7:
-            driver.find_element(By.XPATH, '//*[@id="page4823833"]/div').click()
-            time.sleep(600)
-            select()
-        elif b == 8:
-            driver.find_element(By.XPATH, '//*[@id="page4823834"]/div').click()
-            time.sleep(600)
-            select()
-        elif b == 9:
-            driver.find_element(By.XPATH, '//*[@id="page4823835"]/div').click()
-            time.sleep(600)
-            select()
-        elif b == 10:
-            driver.find_element(By.XPATH, '//*[@id="page4823836"]/div').click()
-            time.sleep(600)
-            select()
-        elif b == 11:
-            driver.execute_script(js)
-            time.sleep(1)
-            driver.find_element(By.XPATH, '//*[@id="page4823837"]/div').click()
-            time.sleep(600)
-            select()
-        elif b == 12:
-            driver.execute_script(js)
-            time.sleep(1)
-            driver.find_element(By.XPATH, '//*[@id="page4823838"]/div').click()
-            time.sleep(600)
-            select()
-        elif b == 13:
-            driver.execute_script(js)
-            time.sleep(1)
-            driver.find_element(By.XPATH, '//*[@id="page4823839"]/div').click()
-            time.sleep(600)
-            select()
-        elif b == 14:
-            driver.execute_script(js)
-            time.sleep(1)
-            driver.find_element(By.XPATH, '//*[@id="page4823840"]/div').click()
-            time.sleep(600)
-            select()
-        elif b == 15:
-            driver.execute_script(js)
-            time.sleep(1)
-            driver.find_element(By.XPATH, '//*[@id="page4823841"]/div').click()
-            time.sleep(600)
-            select()
-        elif b == 16:
-            driver.execute_script(js)
-            time.sleep(1)
-            driver.find_element(By.XPATH, '//*[@id="page4823842"]/div').click()
-            time.sleep(600)
-            select()
-
-
+        ranges2 = [[1, '//*[@id="page4809646"]/div'], [2, '//*[@id="page4823828"]/div'],
+                   [3, '//*[@id="page4823829"]/div'], [4, '//*[@id="page4823830"]/div'],
+                   [5, '//*[@id="page4823831"]/div'], [6, '//*[@id="page4823832"]/div'],
+                   [7, '//*[@id="page4823833"]/div'], [8, '//*[@id="page4823834"]/div'],
+                   [9, '//*[@id="page4823835"]/div'], [10, '//*[@id="page4823836"]/div'],
+                   [11, '//*[@id="page4823837"]/div'], [12, '//*[@id="page4823838"]/div'],
+                   [13, '//*[@id="page4823839"]/div'], [14, '//*[@id="page4823840"]/div'],
+                   [15, '//*[@id="page4823841"]/div'], [16, '//*[@id="page4823842"]/div']]
+        for r in ranges2:
+            if b == r[0]:
+                if b >= 12:
+                    driver.execute_script(js)
+                    time.sleep(1)
+                driver.find_element(By.XPATH, r[1]).click()
+                time.sleep(600)
+                select()
+                break
 # 打开网页
 i = 1
 count = 0
