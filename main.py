@@ -57,15 +57,15 @@ def select():
               [172800, 187200, 13], [187200, 201600, 14], [201600, 216000, 15], [216000, 230400, 16]]
 
     if temp1 < 57600:
-        for r in ranges[:4]:
+        for r in ranges:
             if r[0] <= temp1 < r[1]:
                 function(1, r[2])
-            break
+                break
     elif temp2 < 230400:
         for r in ranges:
             if r[0] <= temp1 < r[1]:
                 function(2, r[2])
-            break
+                break
     else:
         print('程序已完成学习，请检查学习数据')
 
@@ -76,7 +76,7 @@ def function(a, b):
         # 开始学习
         url_learn = 'https://ua.ulearning.cn/learnCourse/learnCourse.html?courseId=33998&chapterId=110168528&classId=592245'
         driver.get(url_learn)
-        time.sleep(3)
+        time.sleep(15)
         # 跳过指引
         if i == 1:
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[8]/div[4]/div')))
@@ -103,7 +103,7 @@ def function(a, b):
         url_learn = 'https://ua.ulearning.cn/learnCourse/learnCourse.html?courseId=33998&chapterId=110168538&classId=592245'
         js = 'var q = document.getElementsByClassName("page-item")[14].scrollIntoView();'
         driver.get(url_learn)
-        time.sleep(3)
+        time.sleep(5)
         # 跳过指引
         if i == 1:
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[8]/div[4]/div')))
