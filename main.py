@@ -63,7 +63,7 @@ def select():
                 break
     elif temp2 < 230400:
         for r in ranges:
-            if r[0] <= temp1 < r[1]:
+            if r[0] <= temp2 < r[1]:
                 function(2, r[2])
                 break
     else:
