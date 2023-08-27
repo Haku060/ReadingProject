@@ -7,7 +7,7 @@
 
 ## 如何运行
 
-需要安装Python 3.10
+需要安装Python
 
 然后用pip安装selenium 4.7.2
 
